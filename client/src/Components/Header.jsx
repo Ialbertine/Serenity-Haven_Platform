@@ -27,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className={`header ${isScrolled ? "scrolled" : ""} `}>
+    <nav className={`header ${isScrolled ? "scrolled" : ""}`} style={{ backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1000 }}>
       <div className="flex items-center justify-between py-2 sm:px-[2rem]">
         <div className="w-[25vh] lg:w-[25vh]">
           <img src="imgs/Serenity190.png" alt="serenity" />
@@ -57,10 +57,10 @@ const Header = () => {
           </div>
           <div className="h-[9vh] border-[1px] border-black mx-4"></div>
           <div className="flex space-x-4">
-            <div className="p-4 border-[1px] border-black rounded-full">
+            <div className="p-2 border-[1px] border-black rounded-full">
               <IoCallOutline className="text-2xl"/>
             </div>
-            <div className="p-4 border-[1px] border-black rounded-full">
+            <div className="p-2 border-[1px] border-black rounded-full">
               <CiSearch className="text-2xl"/>
             </div>
           </div>
