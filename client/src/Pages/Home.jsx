@@ -4,6 +4,25 @@ import { ImCheckmark } from "react-icons/im";
 import { IoMdPlay } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
+import styled from 'styled-components';
+
+
+const BackgroundContainer = styled.div`
+  position: relative;
+  background-image: url('/imgs/Homemental.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  @media (min-width: 1024px) {
+    background-attachment: fixed;
+    padding: 3rem;
+  }
+`;
 
 const Home = () => {
   // video interactivity
@@ -380,6 +399,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Pricing */}
+      <BackgroundContainer>
+        {/* Content here */}
+
+      </BackgroundContainer>
     </>
   );
 };
