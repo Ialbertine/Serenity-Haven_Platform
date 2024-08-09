@@ -60,7 +60,7 @@ const Home = () => {
 
       {/* About section overview */}
 
-      <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen sm:py-6 sm:px-[1rem] lg:px-[3rem]">
+      <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen sm:py-[2rem] lg:py-[3rem] sm:px-[1rem] lg:px-[3rem]">
         {/* Image Section */}
         <div className="lg:w-1/2 lg:mr-8 mb-8 lg:mb-0">
           <img
@@ -115,7 +115,7 @@ const Home = () => {
       {/* <VideoPlayer /> */}
 
       <div
-        className="relative bg-fixed bg-center bg-cover bg-no-repeat min-h-screen flex flex-col px-[2.3rem]"
+        className="relative bg-fixed bg-center bg-cover bg-no-repeat min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem]"
         style={{ backgroundImage: "url('/imgs/fixedback.jpg')" }}
       >
         <div className="flex flex-col justify-start items-center h-full mb-12 ">
@@ -189,7 +189,9 @@ const Home = () => {
             <h2 className="font-bold text-2xl text-gray-100">
               Individual Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="text-[18px] lg:text-lg text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
             <div className="flex items-center">
               <span
                 className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
@@ -223,7 +225,9 @@ const Home = () => {
             >
               Group Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="text-[18px] lg:text-lg text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
             <div className="flex items-center">
               <span
                 className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
@@ -257,7 +261,9 @@ const Home = () => {
             >
               Couple Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="text-[18px] lg:text-lg text-grey">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
             <div className="flex items-center">
               <span
                 className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
@@ -277,7 +283,98 @@ const Home = () => {
         </div>
       </div>
 
-      {/*  */}
+      {/* conditions we treat */}
+
+      <div className="min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] lg:py-[3rem]">
+        <div className="flex justify-between items-center py-[2rem]">
+          <h1 className="sm:text-3xl lg:text-5xl font-bold">
+            Conditions We Treat
+          </h1>
+          <div>
+            <button className="flex items-center gap-2 bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
+              View More <BsArrowRight className="text-xl" />
+            </button>
+          </div>
+        </div>
+        <div className="flex flex-col-reverse lg:flex-row gap-5">
+          <div className="flex flex-col gap-4 lg:w-1/2">
+            <div className="border rounded p-4">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#ea4949] text-2xl" />
+                <h1 className="sm:text-2xl font-bold">Depression</h1>
+              </div>
+              <p>
+                Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor
+                vel sodales sed nibh ut. Ac fringilla fames eget a aliquet.
+                Gravida placerat viverra purus sed ac ultricies sem nulla.
+              </p>
+            </div>
+            <div className="border rounded p-4">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#ea4949] text-2xl" />
+                <h1 className="">Anxiety Disorders</h1>
+              </div>
+              <p>
+                Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor
+                vel sodales sed nibh ut. Ac fringilla fames eget a aliquet.
+                Gravida placerat viverra purus sed ac ultricies sem nulla.
+              </p>
+            </div>
+            <div className="border rounded p-4">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#ea4949] text-2xl" />
+                <h1 className="">Childhood Trauma</h1>
+              </div>
+              <p>
+                Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor
+                vel sodales sed nibh ut. Ac fringilla fames eget a aliquet.
+                Gravida placerat viverra purus sed ac ultricies sem nulla.
+              </p>
+            </div>
+          </div>
+          <div className="lg:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+            <div className="col-span-1 row-span-1">
+              <img
+                src="/imgs/condition.jpg"
+                alt="condition"
+                className="object-cover w-full h-[35vh] rounded-xl"
+              />
+            </div>
+            <div className="col-span-1 row-span-1">
+              <img
+                src="/imgs/childhood.jpg"
+                alt="Photo 2"
+                className="object-cover w-full h-[35vh] rounded-xl"
+              />
+            </div>
+            <div className="col-span-2 row-span-1 relative">
+              {!isPlaying ? (
+                <>
+                  <img
+                    src="/imgs/depression.jpg"
+                    alt="Depression"
+                    className="object-cover w-full h-[40vh] rounded-xl"
+                  />
+                  <button
+                    onClick={handlePlay}
+                    className="absolute inset-0 m-auto w-16 h-16 bg-white text-red-600 rounded-full flex justify-center items-center animate-pulse hover:scale-110 transition-transform"
+                  >
+                    <IoMdPlay size={32} />
+                  </button>
+                </>
+              ) : (
+                <iframe
+                  className="w-full h-full rounded-xl"
+                  src="https://www.youtube.com/embed/your-video-id?autoplay=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
