@@ -362,7 +362,7 @@ const Home = () => {
                   />
                   <button
                     onClick={handlePlay}
-                    className="absolute inset-0 m-auto w-16 h-16 bg-white text-red-600 rounded-full flex justify-center items-center animate-pulse hover:scale-110 transition-transform"
+                    className="absolute inset-0 m-auto w-16 h-16 bg-white text-red-600 rounded-full flex justify-center items-center lg:-top-12 animate-pulse hover:scale-110 transition-transform"
                   >
                     <IoMdPlay size={32} />
                   </button>
