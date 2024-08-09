@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { CgArrowLongRight } from "react-icons/cg";
 import { ImCheckmark } from "react-icons/im";
 import { IoMdPlay } from "react-icons/io";
+import { BsArrowRight } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const Home = () => {
   // video interactivity
@@ -10,6 +12,17 @@ const Home = () => {
 
   const handlePlay = () => {
     setIsPlaying(true);
+  };
+
+  // services container
+  const [hoveredDiv, setHoveredDiv] = useState(null);
+  const variants = {
+    initial: { y: 0 },
+    hover: {
+      y: -10,
+      backgroundColor: "#053c2d",
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
@@ -93,47 +106,178 @@ const Home = () => {
 
       {/* categories */}
 
-      <div className="bg-[#085a44] w-full h-[30vh]">
-        <div>
-          {/* <Carousel /> */}
-        </div>
+      <div className="bg-[#053c2d] w-full h-[30vh]">
+        <div>{/* <Carousel /> */}</div>
       </div>
 
       {/* Services section overview and Video player*/}
 
       {/* <VideoPlayer /> */}
 
-      <div className="relative bg-fixed bg-center bg-cover bg-no-repeat h-screen" style={{ backgroundImage: "url('/imgs/fixedback.jpg')" }}>
-      <div className="flex flex-col justify-start items-center h-full">
-        {!isPlaying ? (
-          <div className="relative w-[80%] h-[60vh]">
+      <div
+        className="relative bg-fixed bg-center bg-cover bg-no-repeat min-h-screen flex flex-col px-[2.3rem]"
+        style={{ backgroundImage: "url('/imgs/fixedback.jpg')" }}
+      >
+        <div className="flex flex-col justify-start items-center h-full mb-12 ">
+          {!isPlaying ? (
+            <div className="relative w-[100%] h-[60vh]">
+              <img
+                src="/imgs/videoplay.jpg"
+                alt="video"
+                className="rounded-xl w-full h-full object-cover"
+              />
+              <button
+                onClick={handlePlay}
+                className="absolute inset-0 m-auto w-20 h-20 bg-white text-red-600 rounded-full flex justify-center items-center animate-pulse hover:scale-110 transition-transform"
+              >
+                <IoMdPlay size={32} />
+              </button>
+            </div>
+          ) : (
+            <div className="relative w-[80%] h-[70vh]">
+              {/* YouTube Video Embed */}
+              <iframe
+                className="w-full h-full rounded-xl"
+                src="https://www.youtube.com/embed/your-video-id?autoplay=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+        </div>
+        <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-2 lg:gap-8 ">
+          <div>
+            <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
+              Our Services
+            </h3>
+            <p className="text-3xl lg:text-[2.5rem] leading-normal lg:leading-[3.5rem] mb-4 lg:mb-6 font-bold lg:w-[80vh]">
+              Transformative Mental Health Service
+            </p>
+          </div>
+          <div>
+            <p className="text-base lg:text-lg mb-3 text-[grey]">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+            <div className="mt-4">
+              <button className="flex items-center gap-2 bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
+                Discover All <CgArrowLongRight className="text-xl" />
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* sample services */}
+        <div className="flex flex-col lg:flex-row gap-8 mt-5 pb-[2rem]">
+          {/* Individual Therapy */}
+          <motion.div
+            className="flex flex-col bg-[#053c2d] px-6 py-8 gap-4 rounded-[30px]"
+            initial="initial"
+            animate={hoveredDiv === 1 ? "hover" : "initial"}
+            variants={variants}
+            onMouseEnter={() => setHoveredDiv(1)}
+            onMouseLeave={() => setHoveredDiv(null)}
+          >
             <img
-              src="/imgs/videoplay.jpg"
-              alt="video"
-              className="rounded-xl w-full h-full object-cover"
+              src="/imgs/individualtherapy.png"
+              alt="single"
+              className="w-10"
             />
-            <button
-              onClick={handlePlay}
-              className="absolute inset-0 m-auto w-20 h-20 bg-white text-red-600 rounded-full flex justify-center items-center animate-pulse hover:scale-110 transition-transform"
+            <h2 className="font-bold text-2xl text-gray-100">
+              Individual Therapy
+            </h2>
+            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="flex items-center">
+              <span
+                className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
+                style={{
+                  color: hoveredDiv === 1 ? "#8B4513" : "#28b588",
+                  fontWeight: "bold",
+                }}
+              >
+                Learn More
+              </span>
+              <BsArrowRight
+                className="text-xl"
+                style={{ color: hoveredDiv === 1 ? "#8B4513" : "#28b588" }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Group Therapy */}
+          <motion.div
+            className="flex flex-col bg-[#e7e7e7] px-6 py-8 gap-4 rounded-[30px]"
+            initial="initial"
+            animate={hoveredDiv === 2 ? "hover" : "initial"}
+            variants={variants}
+            onMouseEnter={() => setHoveredDiv(2)}
+            onMouseLeave={() => setHoveredDiv(null)}
+          >
+            <img src="/imgs/grouptherapy.png" alt="group" className="w-10" />
+            <h2
+              className="font-bold text-2xl"
+              style={{ color: hoveredDiv === 2 ? "white" : "black" }}
             >
-              <IoMdPlay size={32} />
-            </button>
-          </div>
-        ) : (
-          <div className="relative w-[80%] h-[70vh]">
-            {/* YouTube Video Embed */}
-            <iframe
-              className="w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed/your-video-id?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        )}
+              Group Therapy
+            </h2>
+            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="flex items-center">
+              <span
+                className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
+                style={{
+                  color: hoveredDiv === 2 ? "#8B4513" : "#28b588",
+                  fontWeight: "bold",
+                }}
+              >
+                Learn More
+              </span>
+              <BsArrowRight
+                className="text-xl"
+                style={{ color: hoveredDiv === 2 ? "#8B4513" : "#28b588" }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Couple Therapy */}
+          <motion.div
+            className="flex flex-col bg-[#e7e7e7] px-6 py-8 gap-4 rounded-[30px]"
+            initial="initial"
+            animate={hoveredDiv === 3 ? "hover" : "initial"}
+            variants={variants}
+            onMouseEnter={() => setHoveredDiv(3)}
+            onMouseLeave={() => setHoveredDiv(null)}
+          >
+            <img src="/imgs/Couple01.png" alt="couple" className="w-10" />
+            <h2
+              className="font-bold text-2xl"
+              style={{ color: hoveredDiv === 3 ? "white" : "black" }}
+            >
+              Couple Therapy
+            </h2>
+            <p className="text-[18px] lg:text-lg text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="flex items-center">
+              <span
+                className="uppercase text-[14px] text-[#28b588] mr-1 font-semibold"
+                style={{
+                  color: hoveredDiv === 3 ? "#8B4513" : "#28b588",
+                  fontWeight: "bold",
+                }}
+              >
+                Learn More
+              </span>
+              <BsArrowRight
+                className="text-xl"
+                style={{ color: hoveredDiv === 3 ? "#8B4513" : "#28b588" }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+
+      {/*  */}
     </>
   );
 };
