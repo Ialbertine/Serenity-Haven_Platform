@@ -287,9 +287,11 @@ const Home = () => {
 
       <div className="min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] lg:py-[3rem]">
         <div className="flex justify-between items-center py-[2rem]">
-          <h1 className="sm:text-3xl lg:text-5xl font-bold">
-            Conditions We Treat
-          </h1>
+          <div>
+            <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
+              Conditions We Treat
+            </h3>
+          </div>
           <div>
             <button className="flex items-center gap-2 bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
               View More <BsArrowRight className="text-xl" />
@@ -298,6 +300,9 @@ const Home = () => {
         </div>
         <div className="flex flex-col-reverse lg:flex-row gap-5">
           <div className="flex flex-col gap-4 lg:w-1/2">
+            <p className="text-3xl lg:text-[2.5rem] leading-normal lg:leading-[3.5rem] mb-4 lg:mb-6 font-bold lg:w-[80vh]">
+              Transformative Mental Health Service
+            </p>
             <div className="border rounded p-4">
               <div className="flex items-center gap-3">
                 <ImCheckmark className="text-[#ea4949] text-2xl" />
@@ -347,7 +352,7 @@ const Home = () => {
                 className="object-cover w-full h-[35vh] rounded-xl"
               />
             </div>
-            <div className="col-span-2 row-span-1 relative">
+            <div className="col-span-2 row-span-1 relative sm:-top-5 lg:-top-10">
               {!isPlaying ? (
                 <>
                   <img
