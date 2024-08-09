@@ -402,7 +402,8 @@ const Home = () => {
 
       {/* Pricing */}
       <BackgroundContainer>
-        {/* Content here */}
+
+        {/* Content here for pricing */}
 
       </BackgroundContainer>
     </>
