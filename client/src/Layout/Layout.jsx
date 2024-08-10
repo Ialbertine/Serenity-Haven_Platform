@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 const Layout = () => {
   return (
     <>
-      <div className="">
+      <div className="font-poppins">
         <Header />
         <Outlet />
         <div className="bg-[#043e35]">

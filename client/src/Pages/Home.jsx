@@ -4,16 +4,15 @@ import { ImCheckmark } from "react-icons/im";
 import { IoMdPlay } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 const BackgroundContainer = styled.div`
   position: relative;
-  background-image: url('/imgs/Homemental.jpg');
+  background-image: url("/imgs/Homemental.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -68,10 +67,10 @@ const Home = () => {
           </p>
         </div>
         <div className="flex gap-4 mt-4 relative z-10">
-          <button className="bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
+          <button className="bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px] hover:animate-bounce">
             Our Services
           </button>
-          <button className="bg-[#ea4949] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
+          <button className="bg-[#ea4949] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px] hover:transform hover:-translate-y-3 transition-transform duration-300">
             Learn More
           </button>
         </div>
@@ -116,7 +115,7 @@ const Home = () => {
             </div>
           </div>
           <div className="mt-8">
-            <button className="flex items-center gap-2 bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px]">
+            <button className="flex items-center gap-2 bg-[#28b588] text-white px-10 py-[16px] rounded-[2rem] uppercase font-medium text-[13px] hover:transform hover:-translate-y-3 transition-transform duration-300">
               Learn More <CgArrowLongRight className="text-xl" />
             </button>
           </div>
@@ -135,7 +134,7 @@ const Home = () => {
 
       <div
         className="relative bg-fixed bg-center bg-cover bg-no-repeat min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem]"
-        style={{ backgroundImage: "url('/imgs/fixedback.jpg')" }}
+        style={{ backgroundImage: "url('/imgs/tina2.jpg')" }}
       >
         <div className="flex flex-col justify-start items-center h-full mb-12 ">
           {!isPlaying ? (
@@ -190,15 +189,16 @@ const Home = () => {
           </div>
         </div>
         {/* sample services */}
-        <div className="flex flex-col lg:flex-row gap-8 mt-5 pb-[2rem]">
+        <div className="flex flex-col lg:flex-row gap-8 mt-5 mb-[5rem]">
           {/* Individual Therapy */}
           <motion.div
-            className="flex flex-col bg-[#053c2d] px-6 py-8 gap-4 rounded-[30px]"
+            className="flex flex-col px-6 py-8 gap-4 rounded-[30px]"
             initial="initial"
             animate={hoveredDiv === 1 ? "hover" : "initial"}
             variants={variants}
             onMouseEnter={() => setHoveredDiv(1)}
             onMouseLeave={() => setHoveredDiv(null)}
+            style={{ backgroundColor: "#053c2d"}}
           >
             <img
               src="/imgs/individualtherapy.png"
@@ -208,7 +208,7 @@ const Home = () => {
             <h2 className="font-bold text-2xl text-gray-100">
               Individual Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">
+            <p className="text-[17px] lg:text-lg text-gray-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <div className="flex items-center">
@@ -230,12 +230,13 @@ const Home = () => {
 
           {/* Group Therapy */}
           <motion.div
-            className="flex flex-col bg-[#e7e7e7] px-6 py-8 gap-4 rounded-[30px]"
+            className="flex flex-col px-6 py-8 gap-4 rounded-[30px]"
             initial="initial"
             animate={hoveredDiv === 2 ? "hover" : "initial"}
             variants={variants}
             onMouseEnter={() => setHoveredDiv(2)}
             onMouseLeave={() => setHoveredDiv(null)}
+            style={{ backgroundColor: "white" }}
           >
             <img src="/imgs/grouptherapy.png" alt="group" className="w-10" />
             <h2
@@ -244,7 +245,7 @@ const Home = () => {
             >
               Group Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">
+            <p className="text-[17px] lg:text-lg text-grey">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <div className="flex items-center">
@@ -266,12 +267,13 @@ const Home = () => {
 
           {/* Couple Therapy */}
           <motion.div
-            className="flex flex-col bg-[#e7e7e7] px-6 py-8 gap-4 rounded-[30px]"
+            className="flex flex-col px-6 py-8 gap-4 rounded-[30px]"
             initial="initial"
             animate={hoveredDiv === 3 ? "hover" : "initial"}
             variants={variants}
             onMouseEnter={() => setHoveredDiv(3)}
             onMouseLeave={() => setHoveredDiv(null)}
+            style={{ backgroundColor: "white" }}
           >
             <img src="/imgs/Couple01.png" alt="couple" className="w-10" />
             <h2
@@ -280,7 +282,7 @@ const Home = () => {
             >
               Couple Therapy
             </h2>
-            <p className="text-[18px] lg:text-lg text-grey">
+            <p className="text-[17px] lg:text-lg text-grey">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
             <div className="flex items-center">
@@ -304,8 +306,8 @@ const Home = () => {
 
       {/* conditions we treat */}
 
-      <div className="min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] lg:py-[3rem]">
-        <div className="flex justify-between items-center py-[2rem]">
+      <div className="min-h-screen flex flex-col sm:px-[1rem] lg:px-[3rem] sm:py-[2rem]">
+        <div className="flex justify-between items-center py-[1rem]">
           <div>
             <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
               Conditions We Treat
@@ -400,12 +402,171 @@ const Home = () => {
         </div>
       </div>
 
+      <BackgroundContainer>{/* design for page */}</BackgroundContainer>
+
       {/* Pricing */}
-      <BackgroundContainer>
+      <div className="flex flex-col items-center justify-center min-h-screen sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] bg-[#eae9e9]">
+        <div className="flexflex-col items-center justify-center">
+          <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
+            Pricing plan
+          </h3>
+          <div className="flex flex-col items-center gap-4 mb-[2.5rem]">
+            <h3 className="sm:text-3xl font-bold">
+              Affordable Care Packages
+            </h3>
+            <p className="sm:text-lg sm:w-[85%] text-center">
+              Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor vel
+              sodales sed nibh ut. Ac fringilla fames eget a aliquet. Gravida
+              placerat viverra purus sed ac ultricies sem nulla.
+            </p>
+          </div>
+        </div>
+        <div className="flex sm:flex-col lg:flex-row items-center justify-center sm:gap-6 lg:gap-3">
+          {/* Individual package */}
 
-        {/* Content here for pricing */}
+          <div className="flex flex-col border rounded-3xl p-6 bg-white">
+            <h2 className="sm:text-2xl font-bold">Individual Package</h2>
+            <p className="sm:text-[16px] lg:text-[16px] py-4">
+              Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor vel
+            </p>
+            <div className="flex items-center gap-1 py-2">
+              <div className="flex flex-col items-start">
+                <span className="text-xl absolute text-[#f95008] text-opacity-90 font-bold">
+                  $
+                </span>
+                <span className="text-4xl text-[#f95008] text-opacity-90 font-bold ml-3 mt-2">
+                  200
+                </span>
+              </div>
+              <span className="flex items-center pl-2 gap-1 text-gray-300 uppercase text-[14px] font-bold">
+                <span className="">/</span>
+                <span>Session</span>
+              </span>
+            </div>
 
-      </BackgroundContainer>
+            <hr className="my-[1rem] border-t border-gray-300 border-dashed" />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Therapy session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Conseling Session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Mental support</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Success Guarantee</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center mt-[2rem]">
+              <button className="text-[17px] font-bold text-gray-200 rounded-full py-3 w-full bg-[#048d6d] hover:bg-[#dc6836] hover:text-gray-80 transition duration-700 easy-in-out">
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Group Package */}
+
+          <div className="flex flex-col border-[1px] border-[#053c2d] bg-[#134b45] rounded-3xl p-6 ">
+            <div className="flex justify-end">
+              <button className="text-[13px] bg-[#e87850] border-[#e87850] text-gray-100 border rounded-full py-3 px-5 uppercase font-bold">
+                Top Offer
+              </button>
+            </div>
+            <h2 className="sm:text-2xl font-bold text-gray-100">
+              Women's Group Package
+            </h2>
+            <p className="sm:text-[16px] lg:text-[16px] py-4 text-gray-400">
+              Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor vel
+            </p>
+            <div className="flex items-center gap-1 py-2">
+              <span className="text-[#e87850] sm:text-4xl">Free</span>
+              <span className="flex items-center pl-2 gap-1 text-gray-300 uppercase text-[14px] font-bold">
+                <span className="">/</span>
+                Session
+              </span>
+            </div>
+
+            <hr className="my-[1rem] border-t border-gray-500 border-dashed" />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#e87850]" />
+                <p className="text-gray-100">Therapy session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#e87850]" />
+                <p className="text-gray-100">Conseling Session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#e87850]" />
+                <p className="text-gray-100">Mental support</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#e87850]" />
+                <p className="text-gray-100">Success Guarantee</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center mt-[2rem] ">
+              <button className="text-[17px] font-bold text-gray-200 rounded-full py-3 w-full bg-[#048d6d] hover:bg-[#dc6836] hover:text-gray-80 transition duration-700 easy-in-out">
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Couple Package */}
+
+          <div className="flex flex-col border rounded-3xl p-6 bg-white">
+            <h2 className="sm:text-2xl font-bold">Couple Package</h2>
+            <p className="sm:text-[16px] lg:text-[16px] py-4">
+              Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor vel
+            </p>
+            <div className="flex items-center gap-1 py-2">
+              <div className="flex flex-col items-start">
+                <span className="text-xl absolute text-[#f95008] text-opacity-90 font-bold">
+                  $
+                </span>
+                <span className="text-4xl text-[#f95008] text-opacity-90 font-bold ml-3 mt-2">
+                  420
+                </span>
+              </div>
+              <span className="flex items-center pl-2 gap-1 text-gray-300 uppercase text-[14px] font-bold">
+                <span className="">/</span>
+                <span>Session</span>
+              </span>
+            </div>
+
+            <hr className="my-[1rem] border-t border-gray-300 border-dashed" />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Therapy session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Conseling Session</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Mental support</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ImCheckmark className="text-[#f95008] text-opacity-90" />
+                <p className="text-gray-600">Success Guarantee</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center mt-[2rem]">
+              <button className="text-[17px] font-bold text-gray-200 rounded-full py-3 w-full bg-[#048d6d] hover:bg-[#dc6836] hover:text-gray-80 transition duration-700 easy-in-out">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
