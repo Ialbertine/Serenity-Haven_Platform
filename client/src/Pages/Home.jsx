@@ -403,9 +403,8 @@ const Home = () => {
       </div>
 
       <BackgroundContainer>{/* design for page */}</BackgroundContainer>
-
-      {/* Pricing */}
-      <div className="flex flex-col items-center justify-center min-h-screen sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] bg-[#eae9e9]">
+{/* Pricing */}
+<div className="flex flex-col items-center justify-center min-h-screen sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] bg-[#eae9e9]">
         <div className="flexflex-col items-center justify-center">
           <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
             Pricing plan
