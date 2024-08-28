@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CgArrowLongRight } from "react-icons/cg";
 import { ImCheckmark } from "react-icons/im";
 import { IoMdPlay } from "react-icons/io";
 import { BsArrowRight } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 
 const BackgroundContainer = styled.div`
@@ -42,6 +42,45 @@ const Home = () => {
       transition: { duration: 0.3 },
     },
   };
+
+  // client review container
+  const reviews = [
+    {
+      image: "/imgs/pipo1.jpeg",
+      name: "Linda Davis",
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+    },
+    {
+      image: "/imgs/pipo2.jpg",
+      name: "Tina Alby",
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+    },
+    {
+      image: "/imgs/pipo3.webp",
+      name: "Pam johnson",
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+      }, 5000); // Slide every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
+
+  const reviewToShow = [
+    reviews[currentIndex],
+    reviews[(currentIndex + 1) % reviews.length],
+  ];
 
   return (
     <>
@@ -198,7 +237,7 @@ const Home = () => {
             variants={variants}
             onMouseEnter={() => setHoveredDiv(1)}
             onMouseLeave={() => setHoveredDiv(null)}
-            style={{ backgroundColor: "#053c2d"}}
+            style={{ backgroundColor: "#053c2d" }}
           >
             <img
               src="/imgs/individualtherapy.png"
@@ -296,7 +335,7 @@ const Home = () => {
                 Learn More
               </span>
               <BsArrowRight
-                className="text-xl"
+                className="text-xl transition"
                 style={{ color: hoveredDiv === 3 ? "#8B4513" : "#28b588" }}
               />
             </div>
@@ -403,16 +442,14 @@ const Home = () => {
       </div>
 
       <BackgroundContainer>{/* design for page */}</BackgroundContainer>
-{/* Pricing */}
-<div className="flex flex-col items-center justify-center min-h-screen sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] bg-[#eae9e9]">
+      {/* Pricing */}
+      <div className="flex flex-col items-center justify-center min-h-screen sm:px-[1rem] lg:px-[3rem] sm:py-[2rem] bg-[#eae9e9]">
         <div className="flexflex-col items-center justify-center">
           <h3 className="text-[#ea4949] font-semibold mb-4 uppercase text-[12px]">
             Pricing plan
           </h3>
           <div className="flex flex-col items-center gap-4 mb-[2.5rem]">
-            <h3 className="sm:text-3xl font-bold">
-              Affordable Care Packages
-            </h3>
+            <h3 className="sm:text-3xl font-bold">Affordable Care Packages</h3>
             <p className="sm:text-lg sm:w-[85%] text-center">
               Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor vel
               sodales sed nibh ut. Ac fringilla fames eget a aliquet. Gravida
@@ -566,6 +603,54 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* client review */}
+      <div className="min-h-screen flex flex-col justify-center p-8">
+  <div className="flex flex-col md:flex-row w-full gap-10">
+    <div className="flex flex-col w-full md:w-[30%] md:text-left mb-10 md:mb-0">
+      <h3 className="text-base font-semibold text-[#f95008] text-opacity-90 mb-[1rem]">Client Review</h3>
+      <h1 className="text-3xl lg:text-4xl font-bold mt-2">
+        Hear From Our Individuals Who Have Healing
+      </h1>
+      <p className="mt-4 text-gray-600">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+        tellus, luctus nec ullamcorper mattis.
+      </p>
+    </div>
+
+    <div
+      className="w-full md:w-[70%] flex items-center justify-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="flex sm:flex-col lg:flex-row gap-5 w-full sm:px-6 md:px-10 py-8">
+      <AnimatePresence initial={false}>
+  {reviewToShow.map((review, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.5 }}
+      className="bg-white p-6 rounded-lg shadow-lg w-full mb-4 flex flex-col items-center justify-center transform relative overflow-hidden hover:bg-[#134b45] hover:text-white transition-transform duration-500 ease-in-out"
+    >
+      <p className="text-gray-500 mt-2">{review.review}</p>
+      <div className="flex items-center gap-3 mt-[2rem]">
+        <img
+          src={review.image}
+          alt={review.name}
+          className="rounded-full w-[5rem] h-[5rem] object-cover"
+        />
+        <h2 className="text-xl font-semibold">{review.name}</h2>
+      </div>
+    </motion.div>
+  ))}
+</AnimatePresence>
+
+      </div>
+    </div>
+  </div>
+</div>
+
     </>
   );
 };
