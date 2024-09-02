@@ -463,7 +463,7 @@ const Home = () => {
           <div className="flex sm:flex-col lg:flex-row items-center justify-center sm:gap-6 lg:gap-3">
             {/* Individual package */}
 
-            <div className="flex flex-col border rounded-3xl p-6 bg-white">
+            <article className="flex flex-col border rounded-3xl p-6 bg-white">
               <h2 className="sm:text-2xl font-bold">Individual Package</h2>
               <p className="sm:text-[16px] lg:text-[16px] py-4">
                 Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor
@@ -508,11 +508,11 @@ const Home = () => {
                   Get Started
                 </button>
               </div>
-            </div>
+            </article>
 
             {/* Group Package */}
 
-            <div className="flex flex-col border-[1px] border-[#053c2d] bg-[#134b45] rounded-3xl p-6 ">
+            <article className="flex flex-col border-[1px] border-[#053c2d] bg-[#134b45] rounded-3xl p-6 ">
               <div className="flex justify-end">
                 <button className="text-[13px] bg-[#e87850] border-[#e87850] text-gray-100 border rounded-full py-3 px-5 uppercase font-bold">
                   Top Offer
@@ -557,11 +557,11 @@ const Home = () => {
                   Get Started
                 </button>
               </div>
-            </div>
+            </article>
 
             {/* Couple Package */}
 
-            <div className="flex flex-col border rounded-3xl p-6 bg-white">
+            <article className="flex flex-col border rounded-3xl p-6 bg-white">
               <h2 className="sm:text-2xl font-bold">Couple Package</h2>
               <p className="sm:text-[16px] lg:text-[16px] py-4">
                 Vulputate bibendum erat morbi interdum diam sit. Eu sit dolor
@@ -606,7 +606,7 @@ const Home = () => {
                   Get Started
                 </button>
               </div>
-            </div>
+            </article>
           </div>
         </section>
 
