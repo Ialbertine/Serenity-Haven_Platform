@@ -27,12 +27,12 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className={`header ${isScrolled ? "scrolled" : ""}`} style={{ backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1000 }}>
-      <div className="flex items-center justify-between py-2 sm:px-[2rem]">
+    <header className={`header ${isScrolled ? "scrolled" : ""}`} style={{ backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1000 }}>
+      <section className="flex items-center justify-between py-2 sm:px-[2rem]">
         <div className="w-[25vh] lg:w-[25vh]">
           <img src="imgs/Serenity190.png" alt="serenity" />
         </div>
-        <div className="hidden lg:flex gap-4 items-center">
+        <nav className="hidden lg:flex gap-4 items-center">
           <div className="flex space-x-6 uppercase lg:font-medium ">
             <Link to="/">Home</Link>
             <div className="flex items-center mr-1 gap-1">
@@ -64,12 +64,12 @@ const Header = () => {
               <CiSearch className="text-2xl"/>
             </div>
           </div>
-        </div>
+        </nav>
         <div className="lg:hidden">
           <AiOutlineMenu className="text-5xl"/>
         </div>
-      </div>
-    </nav>
+      </section>
+    </header>
   );
 };
 
